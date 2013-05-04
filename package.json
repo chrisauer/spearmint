@@ -1,7 +1,7 @@
 {
   "name": "spearmint",
   "description": "Building static blog pages like everyone else.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Enlightenmint",
   "homepage": "http://www.enlightenmint.com/blog",
   "repository": {
@@ -20,6 +20,9 @@
   "bin": {
     "spearmint": "./bin/spearmint"
   },
+  "scripts": {
+    "test": "karma"
+  },
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -32,5 +35,7 @@
     "glob": "~3.2.1",
     "fs-extra": "~0.6.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "karma": "~0.8.5"
+  }
 }
