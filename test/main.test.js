@@ -44,4 +44,21 @@ module.exports = {
 		});
 	},
 
+	'test spearmint.pages': function (beforeExit, assert) {
+		var spearmint = require('../lib/main.js');
+		spearmint.options.paths.base = 'example';
+		var results = [];
+		spearmint.pages(function (err, pages) {
+			if (err) assert.equal(1,2);
+			results = pages;
+		});
+		beforeExit(function () {
+			assert.equal(1, results.length);
+			assert.equal('index', results[0].name)
+			assert.equal('example blog', results[0].data.title);
+			assert.equal('post', results[0].data.layout);
+			assert.isNotNull(results[0].raw);
+		});
+	}
+
 }
