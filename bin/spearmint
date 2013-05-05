@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 'use strict';
 
+var argv = require('optimist').argv; 
 var path = require('path'), fs = require('fs');
 var lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
-require(lib + '/main.js');
+
+var spearmint = require(lib + '/main.js');
+if (argv.base) {
+	spearmint.options.paths.base = argv.base;
+}
+spearmint.run();
